@@ -3,11 +3,17 @@
   "runnerConfig": "e2e/config.json",
   "skipLegacyWorkersInjection": true,
   "apps": {
-    "ios": {
+    "iphone": {
       "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/AwesomeTSProject.app",
       "build": "xcodebuild -workspace ios/AwesomeTSProject.xcworkspace -configuration release -scheme AwesomeTSProject -sdk iphonesimulator -derivedDataPath ios/build",
       "type": "ios.app",
       "name": "iPhone 13"
+    },
+    "ipad": {
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/AwesomeTSProject.app",
+      "build": "xcodebuild -workspace ios/AwesomeTSProject.xcworkspace -configuration release -scheme AwesomeTSProject -sdk iphonesimulator -derivedDataPath ios/build",
+      "type": "ios.app",
+      "name": "iPad mini (5th generation)"
     },
     "android": {
       "type": "android.apk",
@@ -30,9 +36,13 @@
     }
   },
   "configurations": {
-    "ios": {
+    "iphone": {
       "device": "simulator",
-      "app": "ios"
+      "app": "iphone"
+    },
+    "ipad": {
+      "device": "simulator",
+      "app": "ipad"
     },
     "android": {
       "device": "emulator",
