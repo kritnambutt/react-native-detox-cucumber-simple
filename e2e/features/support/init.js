@@ -3,6 +3,7 @@ const {Before, BeforeAll, AfterAll, After} = require('@cucumber/cucumber');
 const adapter = require('./adapter');
 
 BeforeAll(async () => {
+  console.log('before all detox init');
   await detox.init();
 });
 
@@ -16,5 +17,6 @@ After(async context => {
 });
 
 AfterAll(async () => {
+  console.log('after all detox clean up');
   await detox.cleanup();
 });

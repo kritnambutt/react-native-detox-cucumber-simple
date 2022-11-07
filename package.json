@@ -8,13 +8,17 @@
     "start": "react-native start",
     "e2e:ios-build": "detox build -c ios",
     "e2e:android-build": "detox build -c android",
-    "e2e:ios-test": "DETOX_CONFIGURATION=ios node_modules/.bin/cucumber-js --require-module @babel/register ./e2e/features",
+    "e2e:ios-test": "DETOX_CONFIGURATION=ios node_modules/.bin/cucumber-js -f json:./e2e/report-iphone/cucumber_report.json --profile iosIphone --require-module @babel/register ./e2e/features --publish",
+    "e2e:ios-test:focus": "DETOX_CONFIGURATION=ios node_modules/.bin/cucumber-js -f json:./e2e/report-iphone/cucumber_report.json --profile iosIphone --require-module @babel/register ./e2e/features --publish --tags @focus",
+    "e2e:iphone": "DETOX_CONFIGURATION=ios node_modules/.bin/cucumber-js -f json:./e2e/report-iphone/cucumber_report.json --profile iosIphone --require-module @babel/register ./e2e/features --publish",
     "e2e:ios-ci": "npm run e2e:ios-build && npm run e2e:ios-test -- --cleanup",
+    "iphone": "NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --publish",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "cypress": "^10.11.0",
+    "jest-cucumber": "^3.0.1",
     "multiple-cucumber-html-reporter": "^3.0.1",
     "react": "18.1.0",
     "react-native": "0.70.4"

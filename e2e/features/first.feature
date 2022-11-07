@@ -1,3 +1,5 @@
+@iphone
+
 Feature: Initial Cucumber Test
     Try cucumber with detox
 
