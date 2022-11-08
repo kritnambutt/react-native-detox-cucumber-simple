@@ -22,13 +22,19 @@
     }
   },
   "devices": {
-    "simulator": {
+    "iphone": {
       "type": "ios.simulator",
       "device": {
         "type": "iPhone 13"
       }
     },
-    "emulator": {
+    "ipad": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPad mini (5th generation)"
+      }
+    },
+    "android": {
       "type": "android.emulator",
       "device": {
         "avdName": "Pixel_3a_API_30"
@@ -37,11 +43,11 @@
   },
   "configurations": {
     "iphone": {
-      "device": "simulator",
+      "device": "iphone",
       "app": "iphone"
     },
     "ipad": {
-      "device": "simulator",
+      "device": "ipad",
       "app": "ipad"
     },
     "android": {
