@@ -34,7 +34,7 @@
         "type": "iPad mini (5th generation)"
       }
     },
-    "android": {
+    "android.debug": {
       "type": "android.emulator",
       "device": {
         "avdName": "Pixel_3a_API_30"
@@ -50,9 +50,9 @@
       "device": "ipad",
       "app": "ipad"
     },
-    "android": {
-      "device": "emulator",
-      "app": "android"
+    "android.debug": {
+      "device": "android.debug",
+      "app": "android.debug"
     }
   }
 }
