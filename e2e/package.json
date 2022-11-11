@@ -1,0 +1,47 @@
+{
+  "name": "e2e-detox",
+  "version": "1.0.0",
+  "description": "Web and Mobile testing with Detox",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build:iphone": "detox build -c iphone",
+    "build:ipad": "detox build -c ipad",
+    "build:android": "detox build -c android",
+    "e2e:android": "DETOX_CONFIGURATION=android NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android",
+    "e2e:android-focus": "DETOX_CONFIGURATION=android NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android --tags @focus",
+    "e2e:ipad": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=ipad NODE_ENV=PLATFORM=ipad TEST_ENV=local cucumber-js --profile iosIpad --publish",
+    "e2e:ipad-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=ipad NODE_ENV=PLATFORM=ipad TEST_ENV=local cucumber-js --profile iosIpad --publish --tags @focus",
+    "e2e:iphone": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=iphone NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --publish",
+    "e2e:iphone-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=iphone NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --tags @focus"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.15.3",
+    "@cucumber/cucumber": "^7.3.1",
+    "@cucumber/pretty-formatter": "^1.0.0-alpha.0",
+    "app-root-path": "^3.0.0",
+    "axios": "^0.21.1",
+    "chai": "^4.3.6",
+    "cucumber-json-merge": "0.0.7",
+    "dayjs": "^1.10.6",
+    "detox": "^19.12.6",
+    "dotenv": "^10.0.0",
+    "jwt-decode": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.5.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "multiple-cucumber-html-reporter": "^1.18.0"
+  }
+}

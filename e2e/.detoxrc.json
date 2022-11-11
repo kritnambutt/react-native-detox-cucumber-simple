@@ -1,0 +1,64 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "skipLegacyWorkersInjection": true,
+  "apps": {
+    "iphone": {
+      "binaryPath": "../ios/build/Build/Products/Release-iphonesimulator/AwesomeTSProject.app",
+      "build": "xcodebuild -workspace ../ios/AwesomeTSProject.xcworkspace -configuration release -scheme AwesomeTSProject -sdk iphonesimulator -derivedDataPath ../ios/build",
+      "type": "ios.app",
+      "name": "iPhone 13"
+    },
+    "ipad": {
+      "binaryPath": "../ios/build/Build/Products/Release-iphonesimulator/AwesomeTSProject.app",
+      "build": "xcodebuild -workspace ../ios/AwesomeTSProject.xcworkspace -configuration release -scheme AwesomeTSProject -sdk iphonesimulator -derivedDataPath ../ios/build",
+      "type": "ios.app",
+      "name": "iPad mini (5th generation)"
+    },
+    "android": {
+      "type": "android.apk",
+      "binaryPath": "../android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd ../android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ../e2e"
+    }
+  },
+  "devices": {
+    "iphone": {
+      "type": "ios.simulator",
+      "device": {
+        "id": "0457FD78-6EE2-4191-A635-33F8BE49DC72",
+        "type": "iPhone 13",
+        "name": "iPhone 13",
+        "os": "iOS 15.5"
+      }
+    },
+    "ipad": {
+      "type": "ios.simulator",
+      "device": {
+        "id": "185E4F03-DFAA-43D9-A6C1-A9F334DB5895",
+        "type": "iPad mini (5th generation)",
+        "name": "iPad mini (5th generation)",
+        "os": "iOS 15.5"
+      }
+    },
+    "android": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "Pixel_3a_API_30"
+      }
+    }
+  },
+  "configurations": {
+    "iphone": {
+      "device": "iphone",
+      "app": "iphone"
+    },
+    "ipad": {
+      "device": "ipad",
+      "app": "ipad"
+    },
+    "android": {
+      "device": "android",
+      "app": "android"
+    }
+  }
+}
