@@ -1,24 +1,28 @@
 {
   "testRunner": "jest",
-  "runnerConfig": "e2e/config.json",
+  "runnerConfig": "./config.json",
   "skipLegacyWorkersInjection": true,
   "apps": {
-    "iphone": {
+    "ios.sim.debug": {
+      "type": "ios.app",
+      "binaryPath": "../ios/build/Build/Products/Debug-iphonesimulator/AwesomeTSProject.app",
+      "build": "xcodebuild -workspace ../ios/AwesomeTSProject.xcworkspace -scheme AwesomeTSProject -configuration Debug -sdk iphonesimulator -derivedDataPath ../ios/build"
+    },
+    "ios.sim.release": {
       "binaryPath": "../ios/build/Build/Products/Release-iphonesimulator/AwesomeTSProject.app",
       "build": "xcodebuild -workspace ../ios/AwesomeTSProject.xcworkspace -configuration release -scheme AwesomeTSProject -sdk iphonesimulator -derivedDataPath ../ios/build",
       "type": "ios.app",
       "name": "iPhone 13"
     },
-    "ipad": {
-      "binaryPath": "../ios/build/Build/Products/Release-iphonesimulator/AwesomeTSProject.app",
-      "build": "xcodebuild -workspace ../ios/AwesomeTSProject.xcworkspace -configuration release -scheme AwesomeTSProject -sdk iphonesimulator -derivedDataPath ../ios/build",
-      "type": "ios.app",
-      "name": "iPad mini (5th generation)"
-    },
-    "android": {
+    "android.emu.debug": {
       "type": "android.apk",
       "binaryPath": "../android/app/build/outputs/apk/debug/app-debug.apk",
       "build": "cd ../android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ../e2e"
+    },
+    "android.emu.release": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd ../android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ../e2e"
     }
   },
   "devices": {
@@ -48,17 +52,29 @@
     }
   },
   "configurations": {
-    "iphone": {
+    "iphone.debug": {
       "device": "iphone",
-      "app": "iphone"
+      "app": "ios.sim.debug"
     },
-    "ipad": {
+    "iphone.release": {
+      "device": "iphone",
+      "app": "ios.sim.release"
+    },
+    "ipad.debug": {
       "device": "ipad",
-      "app": "ipad"
+      "app": "ios.sim.debug"
     },
-    "android": {
+    "ipad.release": {
+      "device": "ipad",
+      "app": "ios.sim.release"
+    },
+    "android.debug": {
       "device": "android",
-      "app": "android"
+      "app": "android.emu.debug"
+    },
+    "android.release": {
+      "device": "android",
+      "app": "android.emu.release"
     }
   }
 }

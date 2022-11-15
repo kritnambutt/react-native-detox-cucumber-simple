@@ -6,15 +6,18 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "build:iphone": "detox build -c iphone",
-    "build:ipad": "detox build -c ipad",
-    "build:android": "detox build -c android",
-    "e2e:android": "DETOX_CONFIGURATION=android NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android",
-    "e2e:android-focus": "DETOX_CONFIGURATION=android NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android --tags @focus",
-    "e2e:ipad": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=ipad NODE_ENV=PLATFORM=ipad TEST_ENV=local cucumber-js --profile iosIpad --publish",
-    "e2e:ipad-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=ipad NODE_ENV=PLATFORM=ipad TEST_ENV=local cucumber-js --profile iosIpad --publish --tags @focus",
-    "e2e:iphone": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=iphone NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --publish",
-    "e2e:iphone-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=iphone NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --tags @focus"
+    "build:ios.debug": "detox build -c iphone.debug",
+    "build:ios.release": "detox build -c iphone.release",
+    "build:android.debug": "detox build -c android.debug",
+    "build:android.release": "detox build -c android.release",
+    "e2e:android.debug": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=android.debug NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android",
+    "e2e:android.debug-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=android.debug NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android --tags @focus",
+    "e2e:android.release": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=android.release NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android",
+    "e2e:android.release-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=android.release NODE_ENV=PLATFORM=android TEST_ENV=local cucumber-js --profile android --tags @focus",
+    "e2e:ipad.debug": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=ipad.debug NODE_ENV=PLATFORM=ipad TEST_ENV=local cucumber-js --profile iosIpad --publish",
+    "e2e:ipad.debug-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=ipad.debug NODE_ENV=PLATFORM=ipad TEST_ENV=local cucumber-js --profile iosIpad --publish --tags @focus",
+    "e2e:iphone.debug": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=iphone.debug NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --publish",
+    "e2e:iphone.debug-focus": "detox clean-framework-cache && detox build-framework-cache && DETOX_CONFIGURATION=iphone.debug NODE_ENV=PLATFORM=iphone TEST_ENV=local cucumber-js --profile iosIphone --tags @focus"
   },
   "dependencies": {
     "@babel/cli": "^7.14.8",
@@ -42,6 +45,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "jest": ">=27.2.5",
     "multiple-cucumber-html-reporter": "^1.18.0"
   }
 }
