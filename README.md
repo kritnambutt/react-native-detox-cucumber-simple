@@ -97,8 +97,8 @@ dependencies {
 > on this step it need to add more files (not only DetoxTest.java file)
 following these files → https://github.com/wix/Detox/tree/master/examples/demo-react-native/android/app/src/androidTest/java/com/example
 
-![Image Screenshot - 1](../github-assets/screenshot-1.png)
-![Image Screenshot - 2](../github-assets/screenshot-2.png)
+![Image Screenshot - 1](./github-assets/screenshot-1.png)
+![Image Screenshot - 2](./github-assets/screenshot-2.png)
 
 > !!! IMPORTANT !!! Don’t forget to change the package name to your project’s package name these files
 ```
